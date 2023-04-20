@@ -31,7 +31,6 @@ def roc_analysis(iRF,oRF):
 
     return curve
 
-
 # Figure for histograms
 import matplotlib.pyplot as plt
 from visualise.plothist import *
@@ -82,7 +81,7 @@ AUC = [target,go,movement]
 timebins, N = AUC[gEvents].shape
 iRF, oRF = [0, 1]
 xlim = [[-250, 1250],[-1250, 750],[-1250, 250]]
-for id in range(0,N):
+for id in range(11,N):
 
     plt.subplots(4,6, figsize=(10,6),layout='tight')
 
@@ -168,3 +167,12 @@ for id in range(0,N):
 
     plt.suptitle('Event based analysis for neuron: '+str(id+1))
     plt.show()
+
+"""
+    figfolder = 'results/roc_analysis/'
+    figname   = 'Neuron'+str(id+1)+'.jpg'
+    plt.savefig(root_path+figfolder+figname)
+
+    plt.close()
+"""
+
