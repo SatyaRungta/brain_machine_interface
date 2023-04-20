@@ -41,7 +41,7 @@ spike_timings = ['SPtimeTarget','SPtimeGo','SPtimeMo']
 elabel = ['Target', 'Go cue', 'saccade']
 xlim_event = [[-250, 1500],[-1250, 500],[-1500, 250]]
 
-for neuron_id in range(0,N,1):
+for neuron_id in range(0,10,1):
 
     fig, axs = plt.subplots(2, 3, figsize=(8,5), sharey=True)
     plt.style.use(styles[7])
@@ -65,4 +65,9 @@ for neuron_id in range(0,N,1):
     axs[1,1].axis('off')
     axs[1,2].axis('off')
 
+    figfolder = 'results/Raster_approach/'
+    figname   = 'Event_analysis'+str(neuron_id+1)+'.jpg'
+    plt.savefig(root_path + figfolder + figname)
+
     plt.show()
+    plt.close()

@@ -34,6 +34,7 @@ Y = np.ravel(RT)
 Y = Y[~np.isnan(Y)]
 
 # plots
+plt.figure(layout='tight')
 plt.style.use(styles[1])
 
 plt.subplot(2,2,1)
@@ -41,17 +42,23 @@ plt.hist(X,htbins)
 plt.xlim(0,2000)
 plt.ylim(0,500)
 plt.xlabel('Delay period (ms)')
-plt.ylabel('# Counts')
-plt.title('For all sessions')
+plt.ylabel('# No. of trials')
 
 plt.subplot(2,2,2)
 plt.hist(Y,rtbins)
-plt.xlim(0,750)
+plt.xlim(0,475)
 plt.ylim(0,1250)
 plt.xlabel('Reaction time (ms)')
-plt.ylabel('# Counts')
-plt.title('For all sessions')
-plt.show()
+plt.ylabel('# No. of Trials')
+
+plt.suptitle('Collective data from M1 for all experimental sessions')
+#plt.show()
+
+figfolder = 'results/'
+figname   = 'Task_and_behaviour.jpg'
+plt.savefig(root_path+figfolder+figname)
+
+plt.close()
 
 """
 
