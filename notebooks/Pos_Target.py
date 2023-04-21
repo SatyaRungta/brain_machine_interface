@@ -39,8 +39,8 @@ N = Activity.shape[0] # No. of neurons
 eventtarget, eventgo, eventmo = [0, 1, 2]    # Events
 
 # Rasters and spike density functions
-event         = eventgo
-spike_timings = SPtimeGo
+event         = eventtarget
+spike_timings = SPtimeTarget
 all_pos       = 8
 sub = [4,1,2,3,6,9,8,7]
 
@@ -66,18 +66,21 @@ for neuron_id in range(0,15,1):
         plt.plot(rt, np.cumsum(np.ones(rt.shape), axis=0), marker='o', linestyle='none',color='g', markersize=1.5)
         plt.plot(-ht, np.cumsum(np.ones(ht.shape), axis=0), marker='^', linestyle='none', color='b', markersize=1.5)
         plt.plot(stime,sdf,color='k',linewidth=1)
-        plt.fill_between([-250, 50], [250, 250], 0, facecolor=[.8, .8, .8], alpha=0.2)
+        plt.fill_between([25, 175], [250, 250], 0, facecolor=[.8, .8, .8], alpha=0.2)
         plt.vlines(0,0,225,colors='k',linestyles='--')
-        plt.xlim(-1250,750)
+        plt.xlim(-250,1250)
         plt.ylim(0,225)
-        plt.xticks(ticks=list(range(-1250,500,250)),labels=list(range(-1250,500,250)))
-        plt.xlabel('Time from go (in ms)')
+        plt.xticks(ticks=list(range(-250,1250,250)),labels=list(range(-250,1250,250)))
+        plt.xlabel('Time from target (in ms)')
         plt.ylabel('Activity (sp/s)')
 
     plt.suptitle('Activity at different target locations for neuron '+str(neuron_id+1))
 
+    #plt.show()
+
     figfolder = 'results/posActivity/'
-    figname = 'Neuron' + str(neuron_id + 1) + '_Go.jpg'
+    figname = 'Neuron' + str(neuron_id + 1) + '_Target.jpg'
     plt.savefig(root_path + figfolder + figname)
 
     plt.close()
+
